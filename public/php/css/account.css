@@ -1,0 +1,131 @@
+
+.account-container {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    max-width: 600px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    text-align: center;
+}
+
+.account-title {
+    color: #212529;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.account-avatar {
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 4px solid #007bff;
+}
+/* Add styling for the Change Avatar button */
+.avatar-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Styling for the Change Avatar button */
+.avatar-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-decoration: none;
+    width: 200px;
+}
+
+/* Styling for the Log Out button */
+.logout-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 200px;
+}
+
+.avatar-button:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.logout-button:active, .avatar-button:active {
+    transform: translateY(0);
+}
+.account-info {
+    margin-bottom: 20px;
+    text-align: left; /* Align labels and values to the left */
+}
+
+.info-label {
+    font-weight: 600;
+    color: #495057;
+}
+
+.info-value {
+    margin: 5px 0;
+    color: #6c757d; /* Light gray color for values */
+}
+
+.change-password-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.change-password-link:hover {
+    text-decoration: underline;
+}
+
+.cart-summary {
+    margin-top: 20px;
+}
+
+.cart-text {
+    margin-bottom: 10px;
+    color: #495057;
+}
+
+.cart-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cart-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.cart-button:active {
+    transform: translateY(0);
+}

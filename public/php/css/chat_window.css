@@ -1,0 +1,118 @@
+/* Chat window (hidden by default) */
+.chat-window {
+    display: none; /* Initially hidden */
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Chat header */
+.chat-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+}
+
+/* Close button inside chat window */
+.close-chat-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+/* Chat body */
+.chat-body {
+    padding: 10px;
+    overflow-y: auto;
+    height: calc(100% - 60px); /* Adjust height to leave space for header */
+}
+
+/* Accounts list */
+.accounts-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.accounts-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.accounts-list li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Chat content (hidden by default) */
+.chat-content {
+    display: none; /* Will be shown when an account is clicked */
+    height: 100%;
+}
+
+.chat-messages {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* Individual message */
+.message {
+    padding: 8px;
+    margin: 10px;
+    border-radius: 8px;
+    max-width: 70%; /* Controls maximum width of message bubbles */
+    position: relative;
+    clear: both;
+    word-wrap: break-word; /* Breaks long words to prevent overflow */
+    white-space: pre-wrap; /* Maintains whitespace formatting and wraps text */
+    background-color: #f1f0f0;
+    color: black;
+}
+
+/* Messages from the user */
+.message.me {
+    background-color: #007bff;
+    color: white;
+    margin-left: auto; /* Aligns the user's messages to the right */
+    text-align: right;
+}
+
+/* Messages from others */
+.message.other {
+    margin-right: auto; /* Aligns other messages to the left */
+    text-align: left;
+}
+/* Input area styling */
+#messageInput {
+    width: calc(100% - 22px); /* Full width minus padding */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 0 10px;
+}
+
+#sendMessageBtn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    float: right;
+    margin: 5px 10px;
+}
