@@ -1,8 +1,7 @@
-<link rel="stylesheet" href="php/css/banner.css">
-<link rel="stylesheet" href="php/css/main.css">
+<link rel="stylesheet" href="{{asset('frontend/css/banner.css')}}">
+<link rel="stylesheet" href="{{asset('frontend/css/main.css')}}">
 <div class="banner">
-   
-    <img src="php/img/banner/banner1.jpg" alt="Sample Banner Image">
+    <img src="../public/frontend/img/banner/banner1.jpg" alt="Sample Banner Image">
     <div class="banner-content">
         <h1>Your Banner Title</h1>
         <p>
@@ -13,8 +12,6 @@
         <div class="dot"></div>
         <div class="dot"></div>
         <div class="dot"></div>
-
     </div>
-    
 </div>
-<script src="js/banner.js"></script>
+<script src="{{asset('frontend/js/banner.js')}}"></script>

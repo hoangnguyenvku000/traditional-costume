@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Account</title>
-    <link rel="stylesheet" href="css/account.css"> <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="{{asset('frontend/css/account.css')}}"> <!-- Link to the CSS file -->
 </head>
 
-<?php include('view/header.php') ?>
-<?php include('view/chat_window.php') ?>
+@include('header_footer.header')
+@include('chat.chat_window') 
+
 <body>
 <br> <br> <br> <br><br> <br>
 <div class="account-container">
     <h1 class="account-title"><?php echo $_SESSION['name'] ?></h1>
-    <img src="img/background/background.jpg" alt="User Avatar" class="account-avatar">
+    <img src="{{asset('frontend/img/background/background.jpg')}}" alt="User Avatar" class="account-avatar">
     
     <!-- Add a button to change avatar and log out -->
     <div class="avatar-actions">
@@ -21,7 +22,7 @@
     <a href="" class="avatar-button">Change Avatar</a>
 
     <!-- Log Out button (submitting a form to log out) -->
-    <form action="account/logout.php" method="post" style="display: inline;">
+    <form action="{{ url('/logOut') }}" method="post" style="display: inline;">
         <button type="submit" class="logout-button">Log Out</button>
     </form>
 </div>
@@ -42,13 +43,13 @@
 
     <div class="cart-summary">
         <p class="cart-text">You currently have <strong>3 items</strong> in your cart.</p>
-        <a href="view_cart.php" class="cart-button">View Cart</a>
+        <a href="{{ url('/view_cart') }}" class="cart-button">View Cart</a>
     </div>
 </div>
 
 </body>
 
 <br> <br><br> <br>
-<?php include('view/footer.php') ?>
+@include('header_footer.footer') ?>
 
 </html>

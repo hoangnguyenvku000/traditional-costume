@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/chat_window.css">
+    <link rel="stylesheet" href="{{asset('frontend/css/chat_window.css')}}">
     <title>Chat Window</title>
 </head>
 <body>
@@ -34,6 +34,6 @@
     </div>
 
     <!-- External JS -->
-    <script src="php/js/chat.js"></script>
+<script src="{{asset('frontent/php/js/chat.js')}}"></script>
 </body>
 </html>

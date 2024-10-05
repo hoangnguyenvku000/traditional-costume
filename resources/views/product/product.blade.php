@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="php/css/product.css">
+<link rel="stylesheet" href="{{asset('frontend/css/product.css')}}">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
 <div class="product">
@@ -28,4 +28,4 @@
     <div class="pagination"></div> <!-- Pagination container -->
 </div>
 
-<script src="php/js/product.js"></script>
+<script src="{{asset('frontend/js/product.js')}}"></script>

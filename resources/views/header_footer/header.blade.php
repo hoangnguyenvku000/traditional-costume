@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Hurricane&family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="php/css/header.css">
+    <link rel="stylesheet" href="{{asset("frontend/css/header.css")}}">
     <title>Header</title>
 </head>
 <body>
     <header>        
         <input type="checkbox" name="" id="chk1">
-        <div class="logo"><img src="php/img/logo.png"></div>
+        <div class="logo"><img src="{{asset('frontend/img/logo.png')}}"></div>
             
         <div class="search-box">
             <form action="#" method="post">
@@ -37,7 +37,7 @@
                     <!-- Check if the user is logged in using PHP -->
                     <?php if (isset($_SESSION['name']) && !empty($_SESSION['name'])): ?>
                         <li>
-                            <a href="account.php"> <?php echo $_SESSION['name'] ?></a>
+                            <a href="{{ url('/account') }}"> <?php echo $_SESSION['name'] ?></a>
                             <ul class="sub-menu">
                                 <li><a href="">Trang cá nhân</a></li>
                                 <li><a href="">Đăng xuất</a></li>

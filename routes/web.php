@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/home', function () {
@@ -21,3 +22,11 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('account.register');
 });
+
+Route::get('/account', function () {
+    return view('account.account');
+});
+Route::get('/view_cart', function () {
+    return view('view_cart');
+});
+Route::get('/logOut', 'AccountController@logOut');

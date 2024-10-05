@@ -26,7 +26,7 @@
 
    
 <!-- Include the products.js script -->
-<script src="php/js/products.js"></script>
+<script src="{{asset('frontend/js/products.js')}}"></script>
 
 </body>
 
