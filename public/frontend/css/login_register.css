@@ -291,5 +291,7 @@ body {
 }
 
 .form-box.register .text-danger {
-    color: antiquewhite;
+    color: rgb(236, 218, 195);
+}.text-danger {
+    color: rgb(236, 218, 195) ;
 }

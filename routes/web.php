@@ -29,4 +29,8 @@ Route::get('/account', function () {
 Route::get('/view_cart', function () {
     return view('view_cart');
 });
-Route::post('/login', 'AccountController@login');
+
+
+// Request action
+Route::post('/login', [AccountController::class, 'login']);
+Route::post('/register', [AccountController::class, 'register']);
