@@ -1,0 +1,124 @@
+
+.product {
+    width: calc(100vw - 60px); /* Subtracting padding/margin for alignment */
+    margin: 0 20px; /* Left and right alignment for large screens */
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    background-color: rgb(228, 226, 226);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/* Filter container styling */
+.product .filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+/* Styling for search input and dropdown */
+.product .filter-container input[type="text"],
+.product .filter-container select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.product .tag-container {
+    text-align: center;
+    height: 30px;
+    background-color: rgb(230, 62, 62);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.product .tag-container .centered-text {
+    height: 100%;
+    display: flex; /* Enables flexbox */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    border: 1px solid #ccc; /* Optional, just for visualization */
+    font-family: 'Playfair Display', serif; 
+}
+
+/* List item container as a flexbox */
+.product .list-item {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    justify-content: flex-start; /* Align items to the left */
+    gap: 10px; /* Space between items */
+    border-radius: 10px;
+}
+
+/* Product item styling */
+.product .list-item .item {
+    flex: 1 1 calc(50% - 20px); /* 2 items per row with a small gap */
+    max-width: calc(50% - 20px); /* Ensures items don't exceed 50% width */
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0; /* Margin only on top and bottom to reduce horizontal spacing */
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+.product .list-item .item img {
+    border-radius: 5px;
+    width: 100%; /* Adjust image size to fill item */
+}
+
+/* Responsive styling */
+@media only screen and (max-width: 768px) {
+    .product {
+        width: calc(100vw - 10px); /* Adjust width for smaller screens */
+        margin: 0 5px; /* Reduce left and right alignment to 5px on small screens */
+    }
+
+    .product .filter-container {
+        flex-direction: column;
+    }
+
+    .product .filter-container input[type="text"],
+    .product .filter-container select {
+        width: 100%;
+    }
+
+    .product .list-item .item {
+        flex: 1 1 100%; /* Each item takes full width */
+        max-width: 100%; /* Each item should not exceed full width */
+    }
+    
+    .product .list-item .item img {
+        width: 90%;
+    }
+}
+.pagination {
+    display: flex;
+    justify-content: center; /* Center the pagination controls */
+    align-items: center;
+    margin-top: 20px; /* Add space above pagination */
+}
+
+.pagination-button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f4500e; /* Button background color */
+    color: white; /* Button text color */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.pagination-button:disabled {
+    background-color: #ccc; /* Disabled button color */
+    cursor: not-allowed; /* Change cursor for disabled buttons */
+}
+
+.pagination-button:hover:not(:disabled) {
+    background-color: #0056b3; /* Darker shade on hover */
+}

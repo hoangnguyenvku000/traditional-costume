@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-position: center;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 99;
+    box-shadow: 0 0 10px #000;
+    background: url(../img/background/backgr.jpg);
+}
+ 
+header .sub-menu {
+    display: none;  
+    position: absolute;
+    width: 200px;
+    border: 1px solid #eea6a6;
+    background: #000;  
+    padding: 10px 0;
+    margin: 0; 
+    top: 75px;
+    transition: 0.3s;
+}
+
+header ul li:hover .sub-menu {
+    display: block;
+}
+
+#chk1 {
+    display: none;
+}
+
+i {
+    color: rgb(255, 226, 188);
+    cursor: pointer;
+}
+
+header .logo {
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+header .logo img{
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    flex: 1;
+    color: #fff;
+}
+
+header .search-box {
+    flex: 1;
+    position: relative;
+    margin-left: 40px;
+}
+
+.search-box input {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    background: #f2f2f2;
+    border: none;
+    outline: none;
+    color: rgb(43, 42, 42);
+    font-size: 14px;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 40px;
+}
+
+.search-box button {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: scale(0.9);
+    background: #856d6d;
+}
+
+header ul {
+    flex: 2;
+    display: flex;
+    margin-left: 50px;
+    justify-content: space-between;
+}
+header ul li {
+    list-style: none;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: rgb(255, 226, 188);
+    font-size: 18px;
+    font-weight: 550;
+    padding: 10px 15px;
+    text-transform: inherit;
+}
+
+header ul li a:hover {
+    border-bottom: 2px solid #eea6a6;
+}
+
+header .menu {
+    font-size: 2.5em;
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .search-box button {
+        position: absolute;
+    }
+    header ul {
+        position: fixed;
+        top: 100px;
+        right: -100%;
+        background: #b71c1c;
+        height: calc(100vh - 100px);
+        width: 50%;
+        flex-direction: column;
+        align-items: center;
+        transition: right 0.5s linear;
+        padding: 20px 0;
+        box-shadow: 0 0 8px #000;
+    }
+    header .menu {
+        display: block;
+        width: 100px;
+        text-align: center;
+    }
+    #chk1:checked ~ ul {
+        right: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    header .logo {
+        font-size: 10px;
+        margin-left: 8px;
+    }
+    header ul {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {  
+    header ul li a {
+        font-size: 16px;
+    }
+}
