@@ -78,7 +78,8 @@
       
         <!-- login -->
         <div class="form-box login">          
-            <form action="login.php" method="post">
+            <form action="login" method="post">
+                {{csrf_field()}}
                 <img src="{{asset('frontend/img/logo.png')}}" alt="logo">
                 <h1>WELCOME TO OUR PAGE</h1>         
                 <!-- input -->

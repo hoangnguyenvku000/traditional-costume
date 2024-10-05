@@ -29,4 +29,4 @@ Route::get('/account', function () {
 Route::get('/view_cart', function () {
     return view('view_cart');
 });
-Route::get('/logOut', 'AccountController@logOut');
+Route::post('/login', 'AccountController@login');

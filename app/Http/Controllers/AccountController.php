@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class AccountController extends Controller
 {
     //Log out
-    function logOut()
+    function login()
     {
         return view('home');
     }
