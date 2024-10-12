@@ -14,9 +14,8 @@
         <div class="row">
             <div class="col">
                 <img src="{{asset('frontend/img/logo.png')}}" class="logo1">
-                <p>Anh trai say Hi Kim phut kim gio Chan thanh</p>
-                <p>Duong Domic Yeu em 2 ngay - Weantodale Badbye</p>
-                <p>Oh Hae Young</p>
+                <p> Những trang phục cổ Việt Nam không chỉ dừng lại ở việc là di tích quý báu của lịch sử nước nhà 
+                mà còn đại diện những nét đặc trưng của nền văn hoá dân tộc. </p>
             </div>
             <div class="col">
                 <h3>Get in touch <div class="underline"><span></span></div> </h3>
