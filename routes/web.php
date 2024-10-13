@@ -39,7 +39,3 @@ Route::get('profile', [LoginController::class, 'profile'])->name('account.profil
 Route::get('/view_cart', function () {
     return view('view_cart');
 });
-
-Route::get('/view_cart', function () {
-    return view('view_cart');
-});
