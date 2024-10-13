@@ -36,6 +36,9 @@ Route::group(['prefix' => 'account'], function() {
 
 Route::get('profile', [LoginController::class, 'profile'])->name('account.profile');
 
+Route::get('/view_cart', function () {
+    return view('view_cart');
+});
 
 Route::get('/view_cart', function () {
     return view('view_cart');
