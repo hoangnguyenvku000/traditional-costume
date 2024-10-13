@@ -1,3 +1,53 @@
+<?php
+    session_start();  
+    // include "../model/dbconnect.php";
+
+    $email = $password = "";
+    $email_err = $password_err = "";
+    $err_msg = "";
+    $error = false;
+
+ if (isset($_POST['submit'])) {
+        $email = trim($_POST['email']);
+        $password = trim($_POST['password']);
+
+        if ($email == "") {
+            $email_err = "Please enter email";
+            $error = true;
+        }
+        
+        if ($password == "") {
+            $password_err = "Please enter password";
+            $error = true;
+        }
+
+        if (!$error) {
+            $sql = "select * from user where email = ?";
+            $stmt = $connect->prepare($sql);
+            $stmt->bind_param('s',$email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows == 1) {
+                $row = $result->fetch_assoc();      
+                if (isset($row['password'])) {
+                    
+                    $stored_pwd = $row['password'];
+                    if (password_verify($password,$stored_pwd)) {
+                        $_SESSION['name'] = $row['name'];
+                        header("location:../home.php");
+                    }
+                } else {
+                    $err_msg = "Incorrect password.";
+                }
+            }
+            else {
+                $err_msg = "Email is not registered";
+            }
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +59,7 @@
     <title>Login</title>
     
 </head>
+
 <body>
 
     <!-- wrapper -->
@@ -18,35 +69,29 @@
             <a href="{{ url('/home') }}"><i class="fa-solid fa-xmark" style="color: #fff"></i></a>
         </span> 
 
-        @if (Session::has('success'))
-            <div class="alert alert-success">{{ Session::get('success')}}</div>
-        @endif 
-            
-        @if(Session::has('error'))
-            <div class="alert alert-danger">{{ Session::get('error')}}</div>
-        @endif 
+        <?php 
+        if (!empty($err_msg)) { ?>
+        <div  class="alert alert-danger">
+            <?= $err_msg; ?>
+        </div>
+        <?php    }      ?>
       
         <!-- login -->
-        <div class="form-box login">   
-            <form action="{{ route('account.authenticate') }}" method="POST">
-                @csrf
+        <div class="form-box login">          
+            <form action="login" method="POST">
+                <!-- {{route('login')}} -->
+                <!-- {{csrf_field()}} -->
                 <img src="{{asset('frontend/img/logo.png')}}" alt="logo">
                 <h1>WELCOME TO OUR PAGE</h1>         
                 <!-- input -->
                 <div class="input-box">
-                    <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Email@example.com" name="email" value="{{ old('email') }}">
+                    <input type="text" placeholder="Email" name="email" required>
                     <i class='bx bx-user' ></i>
-                    @error('email')
-                        <p class="invalid-feedback">{{ $message }}</p>
-                    @enderror
                 </div>
     
                 <div class="input-box">
-                    <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password">
+                    <input type="password" placeholder="Password" name="password" required>
                     <i class='bx bx-lock-alt' ></i>
-                    @error('password')
-                        <p class="invalid-feedback">{{ $message }}</p>
-                    @enderror
                 </div>
     
                 <!-- forgot pwd -->
@@ -80,11 +125,16 @@
     
                 <!-- register link -->
                 <div class="register-link">
-                    <p>Don't have an account? <a href="{{ route('account.register') }}">Register</a></p>
+                    <p>Don't have an account? <a href="{{ url('/register') }}">Register</a></p>
                 </div>
             </form>
         </div>  
     </div>
        
 </body>
+<script src="{{asset('frontend/js/login_register.js')}}"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </html>

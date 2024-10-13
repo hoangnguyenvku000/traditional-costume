@@ -72,24 +72,25 @@
     <!-- section about us -->
     <section class="about-us" id="aboutus">
         <div class="introduce">
-            <h3>Introduction</h3>
+            <h3 class="intro">Introduction</h3>
             <div class="member">
-                <div class="PND">
-                    <img src="{{ asset('frontend/img/banner/banner1.jpg') }}" alt="">
-                    <h3>Pham Ngoc Duc</h3>
-                    <h2>23IT</h2>
-                    <h2>23JIT</h2>
-                    <p>Leader</p>
-                </div>
                 <div class="DTP">
-                    <img src="{{ asset('frontend/img/banner/banner1.jpg') }}" alt="">  
+                    <img src="{{ asset('frontend/img/member/DTP.jpg') }}" alt="">  
                     <h3>Dam Thanh Phuong</h3>
                     <h2>23IT219</h2>
                     <h2>23JIT</h2>
                     <p>Member</p>
                 </div>
+                <div class="PND">
+                    <img src="{{ asset('frontend/img/member/PND.png') }}" alt="">
+                    <h3>Pham Ngoc Duc</h3>
+                    <h2>23IT</h2>
+                    <h2>23JIT</h2>
+                    <p>Leader</p>
+                </div>
+               
                 <div class="PHN">
-                    <img src="{{ asset('frontend/img/banner/banner1.jpg') }}" alt="">
+                    <img src="{{ asset('frontend/img/member/PHN.png') }}" alt="">
                     <h3>Pham Hoang Nguyen</h3>
                     <h2>23IT</h2>
                     <h2>23JIT</h2>

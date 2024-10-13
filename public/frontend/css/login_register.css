@@ -41,7 +41,7 @@ body {
 .wrapper .form-box.register {
     position: relative;
     width: 550px;
-    height: 700px;
+    height: 680px;
     display: flex;  
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
@@ -61,8 +61,8 @@ body {
 }
 
 .wrapper img {
-    width: 80px;
-    height: 90px;
+    width: 60px;
+    height: 70px;
     margin-left: -20px;
     margin-top: 15px;
     border-radius: 5px;
@@ -124,7 +124,7 @@ body {
 
 .input-box i {
     position: absolute;
-    right: 20px;
+    right: 30px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
@@ -134,7 +134,7 @@ body {
     display: flex;
     justify-content: space-between;
     font-size: 14.5px;
-    margin: -10px 0 20px;
+    margin: 15px 0 18px;
 }
 
 .remember-forgot label input {
@@ -169,13 +169,13 @@ body {
 .wrapper .authentication-social {   
     font-size: 14.5px;
     text-align: center;
-    margin: 15px 0 15px;
+    margin: 17px 0 15px;
 }
 
 .authentication-social .separator {
     display: flex;
     justify-content: space-between;
-    margin: 15px 0 15px;
+    margin: 8px 0 12px;
 }
 
 .authentication-social a {
@@ -249,7 +249,7 @@ body {
     display: flex;
     justify-content: space-between;
     font-size: 14.5px;
-    margin: -10px 0 20px;
+    margin: 12px 0 20px;
     justify-content: center;
     align-items: center;
 }
@@ -277,7 +277,7 @@ body {
 .wrapper .loginLink {
     font-size: 14.5px;
     text-align: center;
-    margin: 15px 0 15px;
+    margin: 3px 0 15px;
 }
 
 .loginLink p a {
@@ -292,4 +292,9 @@ body {
 
 .form-box.register .text-danger {
     color: antiquewhite;
+}
+
+.invalid-feedback {
+    font-weight: bolder;
+    color: rgb(111, 0, 0) !important;
 }

@@ -1,63 +1,3 @@
-<?php 
-    session_start();
-    // include "../model/dbconnect.php";
-    $name = $email = $password = "";
-    $name_err = $email_err = $password_err = "";
-    $succ_msg = $err_msg = "";
-
-    $error = false;
-
-    if (isset($_POST['submit'])) {
-        $name = trim($_POST['name']);
-        $email = trim($_POST['email']);
-        $password = trim($_POST['password']);
-
-        //validate input
-        if ($name == "") {
-            $name_err = "Please enter name";
-            $error = true;
-        }
-        if ($email == "") {
-            $email_err = "Please enter email";
-            $error = true;
-        } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $email_err = "Invalid email format";
-            $error = true;
-        }
-        else {
-            $sql = "select * from users where email = ?";
-            $stmt = $connect->prepare($sql);
-            $stmt->bind_param("s", $email);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            if ($result->num_rows>0) {
-                $email_err = "Email already registered";
-                $error = true;
-            }
-        }
-        if ($password == "") {
-            $password_err = "Please enter password";
-            $error = true;
-        }
-
-        if (!$error) {
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-            $sql = "insert into users (name, email, password) values (?, ?, ?)";
-
-            try {
-                $stmt = $connect->prepare($sql);
-                $stmt->bind_param("sss", $name, $email, $hashed_password);
-                $stmt->execute();
-                $succ_msg = "Registration successful. Please login <a href = 'login.php' >here</a>";
-            } catch (Exception $e) {
-                $err_msg = $e->getMessage();
-            }
-        }
-    }
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,44 +18,37 @@
             <a href="{{ url('/home') }}"><i class="fa-solid fa-xmark" style="color: #fff"></i></a>
         </span> 
 
-        <?php 
-        if (!empty($succ_msg)) { ?>
-        <div  class="alert alert-success">
-            <?= $succ_msg; ?>
-        </div>
-        <?php    } ?>
-
-        <?php 
-        if (!empty($err_msg)) { ?>
-        <div  class="alert alert-danger">
-            <?= $err_msg; ?>
-        </div>
-        <?php    } ?>
-
         <!-- registration -->
         <div class="form-box register">
-            <form action="#" method="post">               
+            <form action="{{ route('account.processRegister') }}" method="post">
+                @csrf               
                 <img src="{{asset('frontend/img/logo.png')}}" alt="logo">
                 <h1>WELCOME TO OUR PAGE</h1>         
                 <!-- input -->
                 <div class="input-box">
-                    <input type="text" placeholder="Username" name="name" required>
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Username" name="name"  value="{{ old('name') }}">
                     <i class='bx bx-user' ></i>
+                    @error('name')
+                        <p class="invalid-feedback">{{ $message }}</p>
+                    @enderror
                 </div>
-                <div class="text-danger"><?= $name_err?></div>
     
                 <div class="input-box">
-                    <input type="text" placeholder="Email" name="email" required>
+                    <input type="text"  class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}">
                     <i class='bx bx-envelope'></i>
+                    @error('email')
+                        <p class="invalid-feedback">{{ $message }}</p>
+                    @enderror
                 </div>
-                <div class="text-danger" style="color: #fff;"><?= $email_err?></div>
     
                 <div class="input-box">
-                    <input type="password" placeholder="Password" name="password" required>
+                    <input type="password"  class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password">
                     <i class='bx bx-lock-alt' ></i>
+                    @error('password')
+                        <p class="invalid-feedback">{{ $message }}</p>
+                    @enderror
                 </div>
-                <div class="text-danger" style="color: #fff;"><?= $password_err?></div>
-    
+
                 <!-- forgot pwd -->
                 <div class="agree">
                     <label><input type="checkbox">I agree to the <a href="#">Service</a> and <a href="#">Conditions</a></label>
@@ -146,17 +79,11 @@
     
                 <!-- register link -->
                 <div class="loginLink">
-                    <p>Already have an account? <a href="{{ url('/login') }}">Login</a></p>
+                    <p>Already have an account? <a href="{{ route('account.login') }}">Login</a></p>
                 </div>
             </form>
         </div>
     </div>
         
 </body>
-<script src="{{asset('frontend/js/login_register.js')}}"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </html>
