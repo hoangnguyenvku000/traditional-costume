@@ -1,12 +1,8 @@
 * {
     margin: 0;
     padding: 0;   
-    font-family: 'poppins', sans-serif;
+    font-family: Poppins;
     box-sizing: border-box;
-}
-
-body {
-  background: #eef;
 }
 
 footer {
@@ -50,6 +46,10 @@ footer {
     position: relative;
     font-weight: bolder;
     color: rgb(255, 189, 103);
+}
+.col p {
+    max-width: 250px;
+    font-style: italic;
 }
 
 footer .email-id {
@@ -109,8 +109,8 @@ footer .mail .email {
     text-align: center;
     line-height: 40px;
     font-size: 20px;
-    color: #000;
-    background: #fff;
+    color: #fff;
+    background: rgb(255, 189, 103);
     margin-right: 15px;
     cursor: pointer;
 }
@@ -133,7 +133,7 @@ footer hr {
     background: #767676;
     border-radius: 3px;
     position: absolute;
-    top: 25px;
+    top: 30px;
     left: 0;
     overflow: hidden;
 }
