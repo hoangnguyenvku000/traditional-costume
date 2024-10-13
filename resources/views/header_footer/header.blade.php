@@ -15,10 +15,10 @@
 <body>
     <header>        
         <input type="checkbox" name="" id="chk1">
-        <div class="logo"><img src="{{asset('frontend/img/logo.png')}}"></div>
+        <div class="logo"><a href="{{ url('/home') }}"><img src="{{asset('frontend/img/logo.png')}}"></a></div>
             
         <div class="search-box">
-            <form action="#" method="post">
+            <form action="#" method="get">
                 <input type="text" name="search" id="srch" placeholder="Search">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
@@ -38,12 +38,16 @@
                 <li> <a href="{{ url('/product-list') }}" > Cửa hàng </a> </li>
                 <li><a href="{{ url('home#aboutus') }}">Về chúng tôi</a></li>         
                 <li><a href="#">Chính sách</a></li>
+
                 <!-- Check if the user is logged -->
                 @if (Auth::check())
                 <li>
-                    <a href="{{ url('/account') }}">{{Auth::user()->name}}</a>
+                    <a href="{{ route ('account.profile') }}">{{Auth::user()->name}}</a>                  
+                </li>
+                <li class="dropdown">
+                    <a href="#"><i class="fa-solid fa-user"></i></a>
                     <ul class="sub-menu">
-                        <li><a href="">Trang cá nhân</a></li>
+                        <li><a href="{{ route ('account.profile') }}">Trang cá nhân</a></li>
                         <li><a href="{{ route('account.logout') }}">Đăng xuất</a></li>
                     </ul>
                 </li>
@@ -52,7 +56,6 @@
                 @endif
                 
                 <li>
-                    <a href="#"><i class="fa-solid fa-user"></i></a>
                     <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
                     <a href="#"><i class="fa-solid fa-bell"></i></a>
                 </li>
