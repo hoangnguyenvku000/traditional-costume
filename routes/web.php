@@ -42,3 +42,7 @@ Route::group(['prefix' => 'account'], function() {
 // Route::get('/view_cart', function () {
 //     return view('view_cart');
 // });
+
+// Request action
+Route::post('/login', [AccountController::class, 'login']);
+Route::post('/register', [AccountController::class, 'register']);
