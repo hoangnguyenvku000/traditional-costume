@@ -134,9 +134,50 @@ document.addEventListener("DOMContentLoaded", () => {
             name: "Áo mới 3",
             price: "300.000₫",
             image: "../public/frontend/img/product/img3.jpg"
+        },
+        {
+            name: "Áo mới 3",
+            price: "300.000₫",
+            image: "../public/frontend/img/product/img3.jpg"
+        },
+        {
+            name: "Áo mới 3",
+            price: "300.000₫",
+            image: "../public/frontend/img/product/img3.jpg"
+        },
+        {
+            name: "Áo mới 3",
+            price: "300.000₫",
+            image: "../public/frontend/img/product/img3.jpg"
+        },
+        {
+            name: "Áo mới 3",
+            price: "300.000₫",
+            image: "../public/frontend/img/product/img3.jpg"
+        },
+        {
+            name: "Áo mới 3",
+            price: "300.000₫",
+            image: "../public/frontend/img/product/img3.jpg"
+        },
+        {
+            name: "Áo mới 3",
+            price: "300.000₫",
+            image: "../public/frontend/img/product/img3.jpg"
+        },
+        {
+            name: "Áo mới 3",
+            price: "300.000₫",
+            image: "../public/frontend/img/product/img3.jpg"
+        },
+        {
+            name: "Áo mới 3",
+            price: "300.000₫",
+            image: "../public/frontend/img/product/img3.jpg"
         }
+        
     ];
     
     // Create an instance of the Pagination class
-    new Pagination(products, 4); // Display 2 products per page
+    new Pagination(products, 9); // Display 2 products per page
 });

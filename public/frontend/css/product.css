@@ -55,8 +55,8 @@
 
 /* Product item styling */
 .product .list-item .item {
-    flex: 1 1 calc(50% - 20px); /* 2 items per row with a small gap */
-    max-width: calc(50% - 20px); /* Ensures items don't exceed 50% width */
+    flex: 1 1 calc(33% - 5px); /* 2 items per row with a small gap */
+    max-width: calc(33% - 5px); /* Ensures items don't exceed 50% width */
     border-radius: 10px;
     padding: 15px;
     margin: 10px 0; /* Margin only on top and bottom to reduce horizontal spacing */
@@ -71,7 +71,14 @@
 }
 
 /* Responsive styling */
-@media only screen and (max-width: 768px) {
+
+@media only screen and (max-width: 888px) {
+    .product .list-item .item {
+        flex: 1 1 48%; /* Each item takes full width */
+        max-width: 48%; /* Each item should not exceed full width */
+    }
+}
+@media only screen and (max-width: 598px) {
     .product {
         width: calc(100vw - 10px); /* Adjust width for smaller screens */
         margin: 0 5px; /* Reduce left and right alignment to 5px on small screens */
@@ -95,6 +102,7 @@
         width: 90%;
     }
 }
+
 .pagination {
     display: flex;
     justify-content: center; /* Center the pagination controls */
