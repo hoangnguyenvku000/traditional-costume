@@ -23,22 +23,6 @@ header {
     box-shadow: 0 0 10px #000;
     background: url(../img/background/backgr.jpg);
 }
- 
-header .sub-menu {
-    display: none;  
-    position: absolute;
-    width: 200px;
-    border: 1px solid #eea6a6;
-    background: #000;  
-    padding: 10px 0;
-    margin: 0; 
-    top: 75px;
-    transition: 0.3s;
-}
-
-header ul li:hover .sub-menu {
-    display: block;
-}
 
 #chk1 {
     display: none;
@@ -124,6 +108,51 @@ header .menu {
     display: none;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sub-menu li {
+    list-style: none;
+}
+
+.sub-menu li a {
+    color: black;
+    text-decoration: none;
+    padding: 12px 16px;
+    display: block;
+}
+
+.sub-menu li a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .sub-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown .sub-menu:hover {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
 @media (max-width: 1200px) {
     .search-box button {
         position: absolute;
@@ -149,6 +178,10 @@ header .menu {
     #chk1:checked ~ .menubar ul {
         right: 0;
     }
+    .sub-menu {
+        top: 90%; /* Reduce the gap on smaller screens */
+        left: 0;  /* Ensure it stays aligned with the parent menu */
+    }
 }
 
 @media (max-width: 576px) {
@@ -158,6 +191,9 @@ header .menu {
     }
     header ul {
         width: 100%;
+    }
+    .sub-menu {
+        top: 80%; /* Further reduce gap on mobile */
     }
 }
 

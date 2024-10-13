@@ -176,13 +176,16 @@ section .about-us {
     line-height: 1;
     line-height: 3;
 }
+.member .intro {
+    margin-top: 15px;
+}
 .member img {
     width: 200px;
-    height: auto;
-    border-radius: 30px;
+    height: 200px;
+    border-radius: 20px;
     margin: 10px 0;
     border: 2px solid #460000;
-    line-height: 3;
+    line-height: 2;
 }
 .member h3 {
     color: #460000;

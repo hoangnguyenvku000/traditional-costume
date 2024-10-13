@@ -21,7 +21,11 @@
             <a href="{{ url('/home') }}"><i class="fa-solid fa-xmark" style="color: #fff"></i></a>
         </span> 
 
-        
+        <!-- registration -->
+        <div class="form-box register">
+            <form action="{{ route('account.processRegister') }}" method="post">
+                @csrf               
+                <img src="{{asset('frontend/img/logo.png')}}" alt="logo">
 
         <!-- registration -->
         <div class="form-box register">
@@ -32,6 +36,15 @@
                 
                 <!-- Username -->
                 <div class="input-box">
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Username" name="name"  value="{{ old('name') }}">
+                    <i class='bx bx-user' ></i>
+                    @error('name')
+                        <p class="invalid-feedback">{{ $message }}</p>
+                    @enderror
+                </div>
+    
+                <div class="input-box">
+                    <input type="text"  class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}">
                     <input type="text" placeholder="Username" name="name" value="{{ old('name') }}" required>
                     <i class='bx bx-user'></i>
                 </div>
@@ -43,7 +56,20 @@
                 <div class="input-box">
                     <input type="text" placeholder="Email" name="email" value="{{ old('email') }}" required>
                     <i class='bx bx-envelope'></i>
+                    @error('email')
+                        <p class="invalid-feedback">{{ $message }}</p>
+                    @enderror
                 </div>
+    
+                <div class="input-box">
+                    <input type="password"  class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password">
+                    <i class='bx bx-lock-alt' ></i>
+                    @error('password')
+                        <p class="invalid-feedback">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <!-- forgot pwd -->
                 @error('email')
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -85,11 +111,13 @@
 
                 <!-- Link to login -->
                 <div class="loginLink">
-                    <p>Already have an account? <a href="{{ url('/login') }}">Login</a></p>
+                    <p>Already have an account? <a href="{{ route('account.login') }}">Login</a></p>
                 </div>
             </form>
         </div>
     </div>
+        
+</body>
 
 </body>
 <script src="{{ asset('frontend/js/login_register.js') }}"></script>
