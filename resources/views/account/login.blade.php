@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{asset('frontend/css/login_register.css')}}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
-    <link rel="stylesheet" href="{{asset('frontend/css/login_register.css')}}">
     <title>Login</title>
     
 </head>
@@ -27,66 +27,38 @@
         @endif 
       
         <!-- login -->
-
         <div class="form-box login">   
             <form action="{{ route('account.authenticate') }}" method="POST">
                 @csrf
                 <img src="{{asset('frontend/img/logo.png')}}" alt="logo">
-
-        <div class="form-box login">          
-            <form action="{{ URL::to('/login') }}" method="post">
-                {{ csrf_field() }}
-                <img src="{{ asset('frontend/img/logo.png') }}" alt="logo">
-
                 <h1>WELCOME TO OUR PAGE</h1>         
-
-                <!-- Display Validation Errors -->
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
-                <!-- Input for Email -->
+                <!-- input -->
                 <div class="input-box">
-
                     <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Email@example.com" name="email" value="{{ old('email') }}">
                     <i class='bx bx-user' ></i>
                     @error('email')
                         <p class="invalid-feedback">{{ $message }}</p>
                     @enderror
-
-                    <input type="text" placeholder="Email" name="email" value="{{ old('email') }}" required>
-                    <i class='bx bx-user'></i>
-
                 </div>
-
-                <!-- Input for Password -->
+    
                 <div class="input-box">
-
                     <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password">
                     <i class='bx bx-lock-alt' ></i>
                     @error('password')
                         <p class="invalid-feedback">{{ $message }}</p>
                     @enderror
-                    <input type="password" placeholder="Password" name="password" required>
-                    <i class='bx bx-lock-alt'></i>
                 </div>
-
-                <!-- Forgot Password and Remember Me -->
+    
+                <!-- forgot pwd -->
                 <div class="remember-forgot">
                     <label><input type="checkbox" name="remember">Remember me</label>
                     <a href="#">Forgot password?</a>
                 </div>
-
-                <!-- Submit Button -->
+    
+                <!-- submit -->
                 <button type="submit" class="btn1" name="submit">Login</button>
                 
-                <!-- Social Login Options -->
+                <!-- auto login -->
                 <div class="authentication-social">
                     <div class="separator">
                         <span></span>
@@ -101,27 +73,18 @@
                     <br>
                     <!-- Facebook -->
                     <a href="#" class="fb" rel="nofollow">
-                        <i class='bx bxl-facebook-circle'></i>
+                        <i class='bx bxl-facebook-circle' ></i>
                         <span>Login with Facebook</span>
                     </a>    
                 </div>
-
-                <!-- Register Link -->
+    
+                <!-- register link -->
                 <div class="register-link">
                     <p>Don't have an account? <a href="{{ route('account.register') }}">Register</a></p>
                 </div>
             </form>
-        </div>
- 
+        </div>  
     </div>
        
 </body>
-</html>
-
-<script src="{{asset('frontend/js/login_register.js')}}"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
 </html>

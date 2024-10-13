@@ -1,7 +1,5 @@
 <?php
 
-// use App\Http\Controllers\AccountController;
-// use App\Http\Controllers\AuthManager;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +23,7 @@ Route::group(['prefix' => 'account'], function() {
         Route::get('register', [LoginController::class, 'register'])->name('account.register');
         Route::post('process-register', [LoginController::class, 'processRegister'])->name('account.processRegister');
         Route::post('authenticate', [LoginController::class, 'authenticate'])->name('account.authenticate');
+       
     });
 
     // Authentiated middleware
@@ -35,14 +34,8 @@ Route::group(['prefix' => 'account'], function() {
 
 });
 
-// Route::get('/account', function () {
-//     return view('account.account');
-// });
+Route::get('profile', [LoginController::class, 'profile'])->name('account.profile');
 
-// Route::get('/view_cart', function () {
-//     return view('view_cart');
-// });
-
-// Request action
-Route::post('/login', [AccountController::class, 'login']);
-Route::post('/register', [AccountController::class, 'register']);
+Route::get('/view_cart', function () {
+    return view('view_cart');
+});

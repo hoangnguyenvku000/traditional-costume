@@ -13,27 +13,23 @@
 <body>
 <br> <br> <br> <br><br> <br>
 <div class="account-container">
-    <h1 class="account-title"><?php echo $_SESSION['name'] ?></h1>
+    <h1 class="account-title">{{Auth::user()->name}}</h1>
     <img src="{{asset('frontend/img/background/background.jpg')}}" alt="User Avatar" class="account-avatar">
-    
-    <!-- Add a button to change avatar and log out -->
     <div class="avatar-actions">
-    <!-- Change Avatar button (navigating to a different page) -->
     <a href="" class="avatar-button">Change Avatar</a>
 
-    <!-- Log Out button (submitting a form to log out) -->
-    <form action="{{ url('/logOut') }}" method="post" style="display: inline;">
+    <form action="{{ route('account.logout')}}" style="display: inline;">
         <button type="submit" class="logout-button">Log Out</button>
     </form>
 </div>
 
     <div class="account-info">
         <label class="info-label">Name:</label>
-        <p class="info-value"><?php echo $_SESSION['name'] ?></p>
+        <p class="info-value">{{Auth::user()->name}}</p>
     </div>
     <div class="account-info">
         <label class="info-label">Email:</label>
-        <p class="info-value">johndoe@example.com</p>
+        <p class="info-value">{{Auth::user()->email}}</p>
     </div>
     <div class="account-info">
         <label class="info-label">Password:</label>
@@ -50,6 +46,6 @@
 </body>
 
 <br> <br><br> <br>
-@include('header_footer.footer') ?>
+@include('header_footer.footer') 
 
 </html>
